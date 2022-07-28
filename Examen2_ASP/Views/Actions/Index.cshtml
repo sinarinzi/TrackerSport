@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Examen2_ASP.Models.Action>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exercice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weigth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reps)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercice.ExerciceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weigth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ActionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ActionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ActionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
